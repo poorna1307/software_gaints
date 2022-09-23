@@ -1,8 +1,10 @@
 import {Nav, Navbar, Offcanvas, Container, Button, NavDropdown, Form} from 'react-bootstrap'
-import "./App.css"
+import "./App.css";
+import nasaLog from '../src/assets/NASA-Logo-Large.png';
 import {Route, Routes,NavLink} from "react-router-dom"
 import Home from './components/home/Home';
 import Wildfire from './components/wildfire/Wildfire'
+import Imageofday from './components/imageofday/Imageofday';
 
 
 function App() {
@@ -10,8 +12,9 @@ function App() {
     <div>
       <Navbar expand="lg" className="mb-3 head">
           <Container fluid>
-            <Navbar.Brand href='' className='text-light'>NASA Earth</Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
+
+            <Navbar.Brand href='' className='text-light'> <img src={nasaLog} width="75px" alt="" /> NASA Earth</Navbar.Brand>
+            <Navbar.Toggle className='toggle' aria-controls={`offcanvasNavbar-expand-lg`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-lg`}
               aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
@@ -36,6 +39,7 @@ function App() {
                 <Nav>
                   <NavLink to=""  className='text-light nav-link'>Home</NavLink>
                   <NavLink to="wildfire" className='text-light nav-link'>WildFire</NavLink>
+                  <NavLink to="imageofday" className='text-light nav-link'>Image of the day</NavLink>
                   </Nav>  
                   <NavDropdown 
                     title="More "
@@ -58,6 +62,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/wildfire' element={<Wildfire />} />
+          <Route path='/imageofday' element={<Imageofday/>}></Route>
         </Routes>
     </div>
   )
